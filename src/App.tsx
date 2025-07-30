@@ -8,8 +8,13 @@ function App() {
   const [activeTab, setActiveTab] = useState<'swap' | 'history'>('swap')
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2832&q=80')] opacity-5 bg-cover bg-center"></div>
+    <div className="min-h-screen bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+      </div>
       
       <div className="relative z-10">
         <Header />
@@ -17,35 +22,36 @@ function App() {
         <main className="container mx-auto px-4 py-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Cross-Chain Swap
+              <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-2xl mb-4 animate-pulse">
+                🚀 XRPSwap Magic ✨
               </h1>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                Seamlessly swap XRP to Bitcoin in a single transaction with THORChain integration
+              <p className="text-xl text-white/90 max-w-2xl mx-auto font-medium">
+                Swap Native XRP to Native Bitcoin Instantly
+                <span className="inline-block animate-bounce ml-2">⚡</span>
               </p>
             </div>
 
             <div className="flex justify-center mb-8">
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-1 border border-slate-700">
+              <div className="bg-white/20 backdrop-blur-lg rounded-2xl p-2 border border-white/30 shadow-2xl">
                 <button
                   onClick={() => setActiveTab('swap')}
-                  className={`px-6 py-2 rounded-md font-medium transition-all ${
+                  className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 ${
                     activeTab === 'swap'
-                      ? 'bg-blue-600 text-white shadow-lg'
-                      : 'text-gray-400 hover:text-white'
+                      ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-white shadow-lg shadow-orange-500/50'
+                      : 'text-white/80 hover:text-white hover:bg-white/10'
                   }`}
                 >
-                  Swap
+                  🔄 Swap
                 </button>
                 <button
                   onClick={() => setActiveTab('history')}
-                  className={`px-6 py-2 rounded-md font-medium transition-all ${
+                  className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 ${
                     activeTab === 'history'
-                      ? 'bg-blue-600 text-white shadow-lg'
-                      : 'text-gray-400 hover:text-white'
+                      ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-white shadow-lg shadow-orange-500/50'
+                      : 'text-white/80 hover:text-white hover:bg-white/10'
                   }`}
                 >
-                  History
+                  📊 History
                 </button>
               </div>
             </div>
